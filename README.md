@@ -1,15 +1,174 @@
-📌 نبذة عن المشروع (بالعربية)
+🧠 Credit Card Fraud Detection System
 
-يهدف هذا المشروع إلى بناء نظام متكامل للكشف عن عمليات الاحتيال المالي (Fraud Detection) باستخدام تقنيات تعلم الآلة، وذلك من خلال إعداد خط معالجة بيانات (Pipeline) احترافي، تدريب ومقارنة نماذج تعلم آلة متعددة، وتقييم أدائها باستخدام مقاييس مناسبة لطبيعة البيانات غير المتوازنة، ثم نشر النموذج الأفضل كخدمة API.
+Machine Learning End-to-End Project
 
-المشروع مطبّق بأسلوب End-to-End Machine Learning وفق متطلبات المقرر.
+📌 Project Overview
 
-📌 Project Overview (English)
+This project presents an end-to-end machine learning system for detecting fraudulent credit card transactions.
+The system covers the complete machine learning lifecycle, starting from data preprocessing and model training, to evaluation and deployment as a web-based application.
 
-This project aims to build an end-to-end machine learning system for financial fraud detection.
-The workflow includes data preprocessing, pipeline construction, training and comparing multiple models, evaluating their performance, and deploying the best-performing model as an API service.
+The project aims to demonstrate how machine learning models can be applied to real-world financial problems, specifically fraud detection.
 
-The project follows academic best practices and fulfills all course requirements.
+🎯 Objectives
+
+Build a complete Machine Learning Pipeline
+
+Train and compare multiple ML models
+
+Evaluate models using appropriate performance metrics
+
+Deploy the best-performing model as a web application
+
+Provide an interactive Graphical User Interface (GUI) for predictions
+
+📊 Dataset
+
+Source: Credit Card Fraud Detection Dataset
+
+Size: Large-scale dataset with highly imbalanced classes
+
+Features:
+
+Time, Amount
+
+V1 to V28 (PCA-transformed features)
+
+Target Variable:
+
+Class
+
+0 → Legitimate transaction
+
+1 → Fraudulent transaction
+
+Due to class imbalance, special care was taken during data splitting and evaluation.
+
+⚙️ Machine Learning Pipeline
+
+The following steps were applied:
+
+Data loading and inspection
+
+Data splitting using stratified sampling
+
+Feature scaling using StandardScaler
+
+Model training using pipelines
+
+Model evaluation and comparison
+
+Model selection and saving
+
+Deployment using FastAPI
+
+🤖 Models Used
+
+Two machine learning models were trained and compared:
+
+Logistic Regression
+
+XGBoost Classifier
+
+The comparison was based on multiple evaluation metrics to select the best-performing model.
+
+📈 Evaluation Metrics
+
+The models were evaluated using:
+
+Precision
+
+Recall
+
+F1-score
+
+ROC-AUC
+
+Confusion Matrix
+
+ROC Curve
+
+Precision-Recall Curve
+
+Due to the imbalanced nature of the dataset, ROC-AUC and Precision-Recall curves were especially emphasized.
+
+✅ XGBoost achieved the best overall performance and was selected for deployment.
+
+🚀 Deployment
+
+The final model was deployed as a web-based application using FastAPI.
+
+Key Features:
+
+RESTful API for predictions
+
+Interactive web interface (GUI)
+
+JSON-based transaction input
+
+Real-time fraud prediction with probability score
+
+🖥️ Web Interface
+
+The web interface allows users to:
+
+Enter transaction data in JSON format
+
+Send data to the ML model
+
+Receive predictions:
+
+Legit ✅
+
+Fraud ❌
+
+View the predicted probability of fraud
+
+▶️ How to Run the Project
+1️⃣ Clone the repository
+git clone <repository-url>
+cd project-folder
+
+2️⃣ Create a virtual environment (optional)
+python -m venv venv
+source venv/bin/activate   # Linux / macOS
+venv\Scripts\activate      # Windows
+
+3️⃣ Install dependencies
+pip install -r requirements.txt
+
+4️⃣ Run the application
+uvicorn main:app --reload
+
+5️⃣ Open the browser
+http://127.0.0.1:8000
+
+📂 Project Structure
+project/
+│
+├── data/
+│   └── creditcard.csv
+│
+├── notebooks/
+│   ├── data_exploration.ipynb
+│   ├── training.ipynb
+│   └── evaluation.ipynb
+│
+├── models/
+│   └── best_model.pkl
+│
+├── app/
+│   ├── main.py
+│   ├── schemas.py
+│   │
+│   ├── templates/
+│   │   └── index.html
+│   │
+│   └── static/
+│       └── style.css
+│
+├── requirements.txt
+└── README.md
+
 
 👥 Team Members
 
@@ -19,133 +178,14 @@ The project follows academic best practices and fulfills all course requirements
 
 حلمي خميس جبران
 
-📂 Dataset
+📌 Notes
 
-Dataset: Credit Card Transactions Dataset
+This project is developed for academic purposes.
 
-Description:
-The dataset contains anonymized transaction features (V1–V28), transaction amount, time, and a binary target variable indicating fraud.
+The focus is on real-world applicability and model performance.
 
-Challenge:
-Highly imbalanced classes (fraud cases are rare).
+The system demonstrates a complete Machine Learning End-to-End workflow.
 
-🧠 Machine Learning Pipeline
+🏁 Conclusion
 
-The project is structured into clear and well-defined stages:
-
-Exploratory Data Analysis (EDA)
-
-Data inspection
-
-Class distribution analysis
-
-Basic statistics and visualization
-
-Data Preprocessing
-
-Train/Test split with stratification
-
-Feature scaling using StandardScaler
-
-Pipeline construction to avoid data leakage
-
-Model Training
-
-Logistic Regression (Baseline Model)
-
-XGBoost Classifier (Advanced Model)
-
-Model Evaluation
-
-Confusion Matrix
-
-Precision, Recall, F1-score
-
-ROC-AUC Curve
-
-Model comparison and selection
-
-Deployment
-
-Model export
-
-API development using FastAPI / Flask
-
-Optional Docker containerization
-
-🧪 Models Used
-
-Logistic Regression
-
-XGBoost Classifier
-
-XGBoost was selected due to its strong performance on structured and imbalanced datasets.
-
-🛠️ Technologies & Libraries
-
-Python
-
-NumPy
-
-Pandas
-
-Scikit-learn
-
-XGBoost
-
-Matplotlib / Seaborn
-
-FastAPI / Flask
-
-Docker (Optional)
-
-📁 Project Structure
-ML-Fraud-Detection/
-│
-├── data/
-│   └── creditcard.csv
-│
-├── notebooks/
-│   ├── 01_EDA.ipynb
-│   ├── 02_Preprocessing_Pipeline.ipynb
-│   ├── 03_Model_Training.ipynb
-│   └── 04_Evaluation.ipynb
-│
-├── app/
-│   ├── main.py
-│   └── schemas.py
-│
-├── models/
-│   └── best_model.pkl
-│
-├── requirements.txt
-├── README.md
-└── report.pdf
-
-🚀 How to Run
-
-Install dependencies:
-
-pip install -r requirements.txt
-
-
-Run notebooks in order:
-
-01 → 02 → 03 → 04
-
-
-Start the API:
-
-uvicorn app.main:app --reload
-
-📄 Final Report
-
-A detailed academic report is included in report.pdf, explaining all steps, experiments, and results.
-
-⭐ Notes
-
-The project focuses on a real-world financial problem.
-
-All experiments were conducted following academic and ethical guidelines.
-
-The codebase is modular, clean, and well-documented.
+This project showcases how machine learning can be effectively used to address real-world financial fraud problems by combining data preprocessing, model evaluation, and deployment into a single integrated system.
