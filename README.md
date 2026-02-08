@@ -5,27 +5,27 @@ Machine Learning End-to-End Project
 📌 Project Overview
 
 This project presents an end-to-end machine learning system for detecting fraudulent credit card transactions.
-The system covers the complete machine learning lifecycle, starting from data preprocessing and model training, to evaluation and deployment as a web-based application.
+It demonstrates the full machine learning lifecycle, including data preprocessing, model training, evaluation, and deployment as a web-based application with a graphical user interface (GUI).
 
-The project aims to demonstrate how machine learning models can be applied to real-world financial problems, specifically fraud detection.
+The project focuses on applying machine learning techniques to a real-world financial problem, namely credit card fraud detection.
 
-🎯 Objectives
+🎯 Project Objectives
 
 Build a complete Machine Learning Pipeline
 
 Train and compare multiple ML models
 
-Evaluate models using appropriate performance metrics
+Evaluate models using suitable performance metrics
 
 Deploy the best-performing model as a web application
 
-Provide an interactive Graphical User Interface (GUI) for predictions
+Provide an interactive GUI for real-time predictions
 
 📊 Dataset
 
-Source: Credit Card Fraud Detection Dataset
+Dataset: Credit Card Fraud Detection
 
-Size: Large-scale dataset with highly imbalanced classes
+Characteristics: Large-scale and highly imbalanced dataset
 
 Features:
 
@@ -41,19 +41,21 @@ Class
 
 1 → Fraudulent transaction
 
-Due to class imbalance, special care was taken during data splitting and evaluation.
+Stratified sampling was used to preserve class distribution during data splitting.
 
 ⚙️ Machine Learning Pipeline
 
 The following steps were applied:
 
-Data loading and inspection
+Data loading and exploration
 
-Data splitting using stratified sampling
+Data preprocessing and cleaning
+
+Stratified train-test split
 
 Feature scaling using StandardScaler
 
-Model training using pipelines
+Model training using Pipeline
 
 Model evaluation and comparison
 
@@ -63,17 +65,17 @@ Deployment using FastAPI
 
 🤖 Models Used
 
-Two machine learning models were trained and compared:
+Two models were trained and compared:
 
 Logistic Regression
 
 XGBoost Classifier
 
-The comparison was based on multiple evaluation metrics to select the best-performing model.
+The final model was selected based on evaluation metrics suitable for imbalanced data.
 
-📈 Evaluation Metrics
+📈 Model Evaluation
 
-The models were evaluated using:
+The models were evaluated using the following metrics:
 
 Precision
 
@@ -89,31 +91,31 @@ ROC Curve
 
 Precision-Recall Curve
 
-Due to the imbalanced nature of the dataset, ROC-AUC and Precision-Recall curves were especially emphasized.
+Due to class imbalance, special emphasis was placed on ROC-AUC and Precision-Recall metrics.
 
 ✅ XGBoost achieved the best overall performance and was selected for deployment.
 
 🚀 Deployment
 
-The final model was deployed as a web-based application using FastAPI.
+The selected model was deployed as a web-based application using FastAPI.
 
-Key Features:
+Deployment Features:
 
 RESTful API for predictions
 
-Interactive web interface (GUI)
+Interactive graphical user interface (GUI)
 
 JSON-based transaction input
 
-Real-time fraud prediction with probability score
+Real-time prediction with probability score
 
-🖥️ Web Interface
+🖥️ Graphical User Interface (GUI)
 
-The web interface allows users to:
+The GUI allows users to:
 
-Enter transaction data in JSON format
+Input transaction data in JSON format
 
-Send data to the ML model
+Submit data to the trained ML model
 
 Receive predictions:
 
@@ -121,14 +123,14 @@ Legit ✅
 
 Fraud ❌
 
-View the predicted probability of fraud
+View the probability of fraud for each transaction
 
 ▶️ How to Run the Project
 1️⃣ Clone the repository
 git clone <repository-url>
-cd project-folder
+cd project
 
-2️⃣ Create a virtual environment (optional)
+2️⃣ Create and activate a virtual environment (optional)
 python -m venv venv
 source venv/bin/activate   # Linux / macOS
 venv\Scripts\activate      # Windows
@@ -137,7 +139,7 @@ venv\Scripts\activate      # Windows
 pip install -r requirements.txt
 
 4️⃣ Run the application
-uvicorn main:app --reload
+uvicorn app.main:app --reload
 
 5️⃣ Open the browser
 http://127.0.0.1:8000
@@ -159,16 +161,13 @@ project/
 ├── app/
 │   ├── main.py
 │   ├── schemas.py
-│   │
 │   ├── templates/
 │   │   └── index.html
-│   │
 │   └── static/
 │       └── style.css
 │
 ├── requirements.txt
 └── README.md
-
 
 👥 Team Members
 
@@ -182,10 +181,10 @@ project/
 
 This project is developed for academic purposes.
 
-The focus is on real-world applicability and model performance.
+The focus is on real-world applicability, model performance, and clean deployment.
 
-The system demonstrates a complete Machine Learning End-to-End workflow.
+The project demonstrates a complete Machine Learning End-to-End workflow.
 
 🏁 Conclusion
 
-This project showcases how machine learning can be effectively used to address real-world financial fraud problems by combining data preprocessing, model evaluation, and deployment into a single integrated system.
+This project illustrates how machine learning models can be effectively applied to detect fraudulent financial transactions by integrating data processing, model evaluation, and deployment into a single interactive system.
