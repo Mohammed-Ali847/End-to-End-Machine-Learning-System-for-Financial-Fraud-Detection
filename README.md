@@ -2,112 +2,137 @@
 
 Machine Learning End-to-End Project
 
+
+
 📌 Project Overview
 
-This project presents an end-to-end machine learning system for detecting fraudulent credit card transactions.
-It demonstrates the full machine learning lifecycle, including data preprocessing, model training, evaluation, and deployment as a web-based application with a graphical user interface (GUI).
+This project aims to analyze youth unemployment rates across different countries and years, and to explore their distribution and relationship with GDP per capita.
+The project focuses on data analysis and anomaly detection, following a structured data science workflow.
 
-The project focuses on applying machine learning techniques to a real-world financial problem, namely credit card fraud detection.
+📂 Datasets Used
 
-🎯 Project Objectives
+Two real-world datasets were used:
 
-Build a complete Machine Learning Pipeline
+Youth Unemployment Dataset
 
-Train and compare multiple ML models
+Contains youth unemployment rates (%) for different countries over multiple years.
 
-Evaluate models using suitable performance metrics
+Key columns:
 
-Deploy the best-performing model as a web application
+Country
 
-Provide an interactive GUI for real-time predictions
+CountryCode
 
-📊 Dataset
+Year
 
-Dataset: Credit Card Fraud Detection
+YouthUnemployment
 
-Characteristics: Large-scale and highly imbalanced dataset
+GDP per Capita Dataset
 
-Features:
+Contains GDP per capita values (US$) for countries across multiple years.
 
-Time, Amount
+Originally provided in wide format and later transformed to long format.
 
-V1 to V28 (PCA-transformed features)
+🔧 Data Preprocessing
 
-Target Variable:
+The following preprocessing steps were applied:
 
-Class
+Removal of missing values in critical columns (YouthUnemployment, GDP_per_Capita, Country, Year)
 
-0 → Legitimate transaction
+Transformation of the GDP dataset from wide to long format using melt
 
-1 → Fraudulent transaction
+Standardization of column names
 
-Stratified sampling was used to preserve class distribution during data splitting.
+Merging datasets using Country and Year
 
-⚙️ Machine Learning Pipeline
+Checking for duplicate rows
 
-The following steps were applied:
+This approach ensures clean and reliable data for analysis.
 
-Data loading and exploration
+📊 Exploratory Data Analysis (EDA)
 
-Data preprocessing and cleaning
+EDA was performed to understand the structure and behavior of the data:
 
-Stratified train-test split
+Histogram to analyze the distribution of youth unemployment rates
 
-Feature scaling using StandardScaler
+Boxplot to detect outliers and data spread
 
-Model training using Pipeline
+Scatter plot to explore the relationship between GDP per capita and youth unemployment
 
-Model evaluation and comparison
+Correlation analysis between key variables
 
-Model selection and saving
+🚨 Outlier Detection Algorithms
 
-Deployment using FastAPI
+Two anomaly detection algorithms were used to identify unusual patterns in youth unemployment data:
 
-🤖 Models Used
+1️⃣ Isolation Forest
 
-Two models were trained and compared:
+An unsupervised learning algorithm designed for anomaly detection.
 
-Logistic Regression
+Works by randomly partitioning the data.
 
-XGBoost Classifier
+Data points that are isolated quickly are considered outliers.
 
-The final model was selected based on evaluation metrics suitable for imbalanced data.
+Suitable for large and high-dimensional datasets.
 
-📈 Model Evaluation
+2️⃣ Local Outlier Factor (LOF)
 
-The models were evaluated using the following metrics:
+Detects anomalies based on local data density.
 
-Precision
+Compares each data point to its neighbors.
 
-Recall
+Points with significantly lower density than their neighbors are labeled as outliers.
 
-F1-score
+Effective in identifying local anomalies.
 
-ROC-AUC
+Both algorithms were used to support the identification of abnormal youth unemployment rates.
 
-Confusion Matrix
+📈 Key Findings
 
-ROC Curve
+Most countries show moderate youth unemployment rates.
 
-Precision-Recall Curve
+A small number of observations exhibit extremely high youth unemployment, identified as outliers.
 
-Due to class imbalance, special emphasis was placed on ROC-AUC and Precision-Recall metrics.
+GDP per capita alone does not strongly explain youth unemployment levels.
 
-✅ XGBoost achieved the best overall performance and was selected for deployment.
+Structural and social factors likely play a major role.
 
-🚀 Deployment
+🧠 Conclusion
 
-The selected model was deployed as a web-based application using FastAPI.
+This project demonstrates the importance of exploratory data analysis and anomaly detection in economic data.
+Using Isolation Forest and Local Outlier Factor helped identify unusual unemployment patterns that are not easily observable through simple statistics.
 
-Deployment Features:
+The results highlight that youth unemployment is a complex issue influenced by multiple factors beyond economic output.
 
-RESTful API for predictions
+🛠 Tools & Libraries
 
-Interactive graphical user interface (GUI)
+Python
 
-JSON-based transaction input
+Pandas
 
-Real-time prediction with probability score
+NumPy
+
+Matplotlib
+
+Seaborn
+
+Scikit-learn
+
+Jupyter Notebook
+
+📄 Output
+
+Jupyter Notebook containing:
+
+Data cleaning
+
+EDA
+
+Outlier detection
+
+Visualizations
+
+Final report (PDF)
 
 🖥️ Graphical User Interface (GUI)
 
