@@ -6,7 +6,6 @@ python-multipart
 numpy
 pandas
 scikit-learn
-xgboost
 joblib
 
 matplotlib
